@@ -13,7 +13,13 @@ document.getElementById('subscribeform').addEventListener('submit', (event)=>{
     const emailInput = document.getElementById('email');
             if (emailInput) {
                 const email = emailInput.value;
-                console.log('Email to subscribe:', email);
+                digitalData.subscription_form.type = 'newsletter';
+                digitalData.subscription_form.email = email;
+                digitalData.event.push({
+                        name: "newsletterSubmitted",
+                        email: email
+                 });
+                console.log('Email to subscribe:', email , digitalData);
                 emailInput.value = '';
             } else {
                 console.error("Email input with ID 'email' not found in subscribe form.");
@@ -55,7 +61,20 @@ productsContainer.addEventListener('click', function (event) {
             targetElement.innerHTML += newHtmlContent;
             
             console.log(`Adding to cart: Name: ${productName}, Price: ${productPrice} , cartprice: ${cartprice} , cart: ${cartnum} , src: ${image} `);
+            digitalData.product = {
+                title: productName,
+                price: productPrice,
+                imageUrl: image,
+                currency: 'INR'
+            };
 
+            digitalData.cart.push({
+                product_added: productName,
+                number_of_products: cartnum,
+                price_of_cart: cartprice
+            })
+
+            console.log('successfully added to digitalData' , digitalData)
             
             document.getElementById('cart-num').innerText = cartnum;
         
