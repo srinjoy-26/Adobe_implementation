@@ -15,17 +15,17 @@ document.getElementById('contactForm').addEventListener('submit', (e)=>{
     //                 form_name: 'Contact Us Form', 
     //                 page_location: window.location.href
     //             })
-    digitalData.contactform.inquiry_category= Inq_cat.value,
-    digitalData.contactform.characters_in_message= charactersInMessage,
-    digitalData.contactform.inquiry_category= Inq_cat.value,
-    digitalData.contactform.submission_count= 1,
-    digitalData.contactform.form_name= 'Contact Us Form',
+    digitalData.contactform.inquiry_category= Inq_cat.value
+    digitalData.contactform.characters_in_message= charactersInMessage
+    digitalData.contactform.inquiry_category= Inq_cat.value
+    digitalData.contactform.submission_count= 1
+    digitalData.contactform.form_name= 'Contact Us Form'
     digitalData.contactform.page_location= window.location.href
     digitalData.event.push({
                         name: "contactformsubmitted",
                         user: Nameval.value,
                         message: Messageval.value
-                 });
+                 })
     console.log('contact form submitted', digitalData)
 
 })
